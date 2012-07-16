@@ -1,0 +1,13 @@
+
+<h1>Your search for <%= params[:q] %> returned the following:</h1>
+
+<pre>
+  <% @results.inspect %>
+ </pre>
+
+<ul>
+  <% @results['results'].each do |r| %>
+    <li><%= r['text'] %></li>
+  <% end %>
+  </ul>
+
