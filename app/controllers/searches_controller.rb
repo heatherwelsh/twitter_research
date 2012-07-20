@@ -7,5 +7,7 @@ class SearchesController < ApplicationController
     search = SimpleTwitter::Search.new
     @results = search.search(params[:q])
 
+    debugger
+
   end
 end

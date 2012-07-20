@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TweetTest < ActiveSupport::TestCase
   # test "the truth" do
-  #   assert true
+  # assert true
   # end
 
   setup do
@@ -19,5 +19,19 @@ class TweetTest < ActiveSupport::TestCase
     end
 
     assert_equal("Hobby, Books", tweet.suggested_categories)
+  end
+
+  ############################################################################
+  def test_setting_categories_from_a_string
+    tweet = Tweet.new
+    cat = Category.where(title: "Hobby").first
+    assert(cat)
+
+    tweet.categories << cat
+    assert_equal(1,tweet.categories.size)
+
+    tweet.categories_as_string = "Music, Books"
+    assert_equal(%w(Music Books),
+    tweet.categories.map(&:title).sort)
   end
 end

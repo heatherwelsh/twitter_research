@@ -1,6 +1,6 @@
 class Tweet < ActiveRecord::Base
-  # attr_accessible :title, :body
-  attr_accessible(:twitter_user, :tweeted_text, :tweeted_at, :user_id)
+
+  attr_accessible(:twitter_user, :tweeted_text, :tweeted_at)
 
   validates(:twitter_user, presence: true)
   validates(:tweeted_text, presence: true)
@@ -8,21 +8,50 @@ class Tweet < ActiveRecord::Base
   validates(:user_id,      presence: true, uniqueness: true)
 
   belongs_to(:user)
-  has_and_belongs_to_many(:category)
+  has_and_belongs_to_many(:categories)
 
+    def suggested_categories (max=50)
+    words = tweeted_text.downcase.gsub(/#/, '').split(/\s+/)
+    categories = Category.limit(max).all
 
-  def suggested_categories
-    # String#split
+    words.inject([]) do |collector, word|
+      match = categories.detect do |cat|
+        cat.title.downcase == word
+      end
 
-    #String#downcase
-    #tweet.downcase
+      collector << match.title if match
+      collector
+    end.sort.uniq.join(', ')
+  end
 
-    #text = tweeted_text.gsub(/#/, '')
-    #tweet = tweeted_test.
+  ##########################################################################
+  # Returns a comma separeted string of the current category titles.
+  def categories_as_string
+    categories.map(&:title).sort.join(',')
+  end
 
-    #titles = Category.all.map(&:title).map(&:downcase)
+  ##########################################################################
+  # Given a comma separated string of category titles, reset the
+  # categories for this tweet to the categories in the string
+  def categories_as_string= (new_categories)
+    c = new_categories
 
-    #titles.include?(word)
+    categories.clear
 
+    c.split(/\s*,\s*/).each do |title|
+      cat = Category.where_title(title).first
+      categories << cat if !cat.nil?
+
+    end
   end
 end
+
+
+
+
+
+
+
+
+
+
