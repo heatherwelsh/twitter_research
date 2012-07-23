@@ -1,13 +1,19 @@
 
 <h1>Your search for <%= params[:q] %> returned the following:</h1>
 
-<pre>
-  <% @results.inspect %>
- </pre>
-
 <ul>
-  <% @results['results'].each do |r| %>
-    <li><%= r['text'] %></li>
+  <% @results.each do |r| %>
+    <li>
+      <%= r.user %> <em>said:</em><%= r.text %>
+      <%= tweet = Tweet.new(:twitter_user => r.user,
+                            :tweeted_text => r.text) %>
+
+      <%= form_for(Tweet.new) do |f|%>
+        <%= f.hidden_field(:twitter_user) %>
+        <%= f.hidden_field(:tweeted_text) %>
+        <%= f.submit('Save') %>
+      <% end %>
+    </li>
   <% end %>
-  </ul>
+</ul>
 

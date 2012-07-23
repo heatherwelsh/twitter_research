@@ -5,7 +5,6 @@ class Tweet < ActiveRecord::Base
   validates(:twitter_user, presence: true)
   validates(:tweeted_text, presence: true)
   validates(:tweeted_at,   presence: true)
-  validates(:user_id,      presence: true, uniqueness: true)
 
   belongs_to(:user)
   has_and_belongs_to_many(:categories)

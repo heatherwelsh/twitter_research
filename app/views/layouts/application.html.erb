@@ -7,8 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header><h1>Twitter Research</h1> </header>
+  <nav>
+    <ul>
+      <li><%= link_to('Search', searches_url) %></li>
+      <li><%= link_to('My Saved Tweets', tweets_url) %></li>
+    </ul>
+  </nav>
 
-<%= yield %>
+  <section>
+    <%= yield %>
+  </section>
 
 </body>
 </html>

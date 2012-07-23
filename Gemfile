@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
 gem('simple_twitter',
-    :git => 'https://github.com/vrwebworx/simple_twitter',
+    :git => 'https://github.com/devalot/simple_twitter.git',
     :tag => 'v1.0.0')
 
 # Bundle edge Rails instead:

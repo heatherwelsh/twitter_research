@@ -1,9 +1,9 @@
 GIT
-  remote: https://github.com/vrwebworx/simple_twitter
-  revision: 3afccb340b4ec172e564443f567e65692022194d
+  remote: https://github.com/devalot/simple_twitter.git
+  revision: 985a31ca9d9d4419b6ea78b1ada1084d08ff50ae
   tag: v1.0.0
   specs:
-    simple_twitter (0.0.1)
+    simple_twitter (1.0.0)
       httparty (~> 0.8.3)
 
 GEM
