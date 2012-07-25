@@ -6,7 +6,7 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @tweet = current_user.tweets.find(params[:id])
+    @tweet = current_user.tweets.with_notes.find(params[:id])
     respond_with(@tweet)
   end
 
