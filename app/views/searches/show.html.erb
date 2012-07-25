@@ -6,11 +6,13 @@
     <li>
       <%= r.user %> <em>said:</em><%= r.text %>
       <%= tweet = Tweet.new(:twitter_user => r.user,
-                            :tweeted_text => r.text) %>
+                            :tweeted_text => r.text,
+                            :tweeted_at => r.time) %>
 
       <%= form_for(Tweet.new) do |f|%>
         <%= f.hidden_field(:twitter_user) %>
         <%= f.hidden_field(:tweeted_text) %>
+        <%= f.hidden_field(:tweeted_at) %>
         <%= f.submit('Save') %>
       <% end %>
     </li>
