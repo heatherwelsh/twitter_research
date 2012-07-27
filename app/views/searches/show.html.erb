@@ -1,4 +1,4 @@
-
+<section id="search_show">
 <h1>Your search for <%= params[:q] %> returned the following:</h1>
 
 <ul>
@@ -9,7 +9,7 @@
                             :tweeted_text => r.text,
                             :tweeted_at => r.time) %>
 
-      <%= form_for(Tweet.new) do |f|%>
+      <%= form_for(tweet) do |f|%>
         <%= f.hidden_field(:twitter_user) %>
         <%= f.hidden_field(:tweeted_text) %>
         <%= f.hidden_field(:tweeted_at) %>
@@ -18,4 +18,14 @@
     </li>
   <% end %>
 </ul>
+
+</section>
+
+
+
+
+
+
+
+
 

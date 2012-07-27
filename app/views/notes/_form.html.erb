@@ -1,14 +1,12 @@
-<%= form_for([@tweet, @note]) do |f| %>
+<%= form_for([@tweet, @note]) do |form|%>
   <fieldset>
     <legend>Note</legend>
-
     <div>
-      <%= form.label(:notes_tex) %>
-      <%= form.text_area(:note_text) %>
+      <%= form.label(:note_text)%>
+      <%= form.text_area(:note_text)%>
     </div>
-
     <div>
       <%= form.submit %>
     </div>
   </fieldset>
-  <% end %>
+<% end %>

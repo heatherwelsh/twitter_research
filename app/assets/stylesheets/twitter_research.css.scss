@@ -1,10 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Codystar|Arbutus);
 
 body{
- background: #800080;
+ background: url(My_twitter_design__WALLPAPER_by_RocKenny.jpg);
  font-family: 'Arbutus', cursive;
  font-size: 18px;
- color: #DEB887;
+ color: #C0D6E5;
 }
 
 h1 {
@@ -14,13 +14,61 @@ h1 {
   font-family: 'Codystar', cursive;
   }
 
+nav {
+  background: #00C3FF;
+  height: 45px;
+  width:300px;
+  margin-bottom: 10px;
+
+  -moz-border-radius: 25px 10px / 10px 25px;
+  border-radius: 25px 10px / 10px 25px;
+}
 nav ul {
-  font-size: 22px;
+  font-size: 15px;
   list-style-type: none;
-  margin-bottom: 20px;
+  padding: 15px;
 
   li {
     display: inline;
-    padding-right: 10px
+    padding: 10px;
+
+  }
+}
+
+section {
+  border: solid 2px #00C3FF;
+  margin: 100px auto;
+
+
+-moz-border-radius: 25px 10px / 10px 25px;
+border-radius: 25px 10px / 10px 25px;
+}
+
+section#search {
+  width: 50%;
+  padding: 40px 0 0 0;
+  height: 65px;
+  text-align: center;
+}
+
+section#search_show {
+  width: 65%;
+  padding: -40px 0 0 0;
+  height: auto;
+  text-align: left;
+
+  h1{
+    margin-top: 10px;
+  }
+}
+section#tweets {
+  width: 65%;
+  padding: 40px 0 0 0;
+  height: auto;
+  text-align: left;
+
+  li {
+    line-height: 25px;
+    padding-bottom: 40px;
   }
 }
